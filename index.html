@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Roughneck">
+<meta name="theme-color" content="#000000">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icon-180.png">
+<link rel="icon" href="icon-192.png">
+<title>Roughneck</title>
+<style>
+html,body{margin:0;height:100%;background:#000;overflow:hidden;touch-action:none;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none;overscroll-behavior:none;font-family:monospace}
+#game{position:fixed;background:#000}
+#ctl{position:fixed;inset:0;pointer-events:none}
+#ctl.hide{display:none}
+#pad{position:absolute;left:calc(env(safe-area-inset-left) + 22px);bottom:calc(env(safe-area-inset-bottom) + 18px);width:128px;height:128px;border-radius:50%;background:rgba(255,255,255,.10);border:2px solid rgba(255,255,255,.28)}
+#pad:before,#pad:after{content:"";position:absolute;background:rgba(255,255,255,.14);border-radius:6px}
+#pad:before{left:44px;top:8px;width:40px;height:112px}
+#pad:after{top:44px;left:8px;height:40px;width:112px}
+#knob{position:absolute;left:40px;top:40px;width:48px;height:48px;border-radius:50%;background:rgba(255,255,255,.35);border:2px solid rgba(255,255,255,.55);z-index:2}
+.btn{position:absolute;width:76px;height:76px;border-radius:50%;background:rgba(220,40,40,.30);border:2px solid rgba(255,120,120,.6);color:rgba(255,255,255,.85);font:bold 22px monospace;display:flex;align-items:center;justify-content:center;flex-direction:column}
+.btn span{font-size:9px;letter-spacing:1px}
+.btn.on{background:rgba(255,80,80,.65);transform:scale(.9)}
+.btn{transition:transform .06s ease-out,background .06s}
+#btnA{right:calc(env(safe-area-inset-right) + 14px);bottom:calc(env(safe-area-inset-bottom) + 44px);width:92px;height:92px;font-size:26px}
+#btnB{right:calc(env(safe-area-inset-right) + 114px);bottom:calc(env(safe-area-inset-bottom) + 18px)}
+#btnG{right:calc(env(safe-area-inset-right) + 30px);bottom:calc(env(safe-area-inset-bottom) + 146px);width:62px;height:62px;font-size:16px;background:rgba(255,190,40,.30);border-color:rgba(255,230,120,.7)}
+#btnG.full{background:rgba(255,120,220,.55);border-color:#fff6a0;box-shadow:0 0 14px 4px rgba(122,248,255,.75)}
+#btnS{right:calc(env(safe-area-inset-right) + 122px);bottom:calc(env(safe-area-inset-bottom) + 108px);width:44px;height:44px;font-size:10px;background:rgba(130,90,255,.30);border-color:rgba(190,160,255,.7)}
+#top{position:fixed;top:calc(env(safe-area-inset-top) + 6px);right:calc(env(safe-area-inset-right) + 10px);display:flex;gap:10px;z-index:5}
+#top div{width:38px;height:30px;border-radius:8px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.3);color:#fff;font:bold 14px monospace;display:flex;align-items:center;justify-content:center;cursor:pointer}
+#rotate{position:fixed;inset:0;background:#000;color:#fff;display:none;align-items:center;justify-content:center;text-align:center;font:bold 18px monospace;z-index:9;padding:20px}
+</style></head>
+<body>
+<canvas id="game" width="384" height="216"></canvas>
+<div id="ctl" class="hide"><div id="pad"><div id="knob"></div></div><div id="btnB" class="btn">B<span>FIRE</span></div><div id="btnA" class="btn">A<span>JUMP</span></div><div id="btnG" class="btn">GOD</div><div id="btnS" class="btn">SWAP</div></div>
+<div id="top"><div id="pauseBtn">II</div><div id="muteBtn">&#9834;</div></div>
+<div id="rotate"><div>&#8635;<br><br>Turn your phone sideways<br>to play Roughneck</div></div>
+<script src="game.js"></script>
+</body></html>
